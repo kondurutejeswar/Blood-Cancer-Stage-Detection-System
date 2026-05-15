@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results - Blood Cancer Detection</title>
+    <style>
+        :root {
+            --bg: #0b0f1a;
+            --surface: #111827;
+            --card: #1a2235;
+            --accent: #3b82f6;
+            --accent2: #06b6d4;
+            --danger: #ef4444;
+            --success: #10b981;
+            --warn: #f59e0b;
+            --text: #e2e8f0;
+            --muted: #64748b;
+            --border: rgba(255, 255, 255, 0.07);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 0.8rem;
+            font-family: "Poppins", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        .navbar {
+            display: flex;
+            background: rgba(11, 15, 26, 0.85);
+            align-items: center;
+            padding: 0.8rem 0;
+            width: 100%;
+            border-bottom:  1px solid var(--card);
+        }
+
+        .logo {
+            letter-spacing: 2px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: 'DM Serif Display', sans-serif;
+            font-size: 1.3rem;
+            color: #e2e8f0;
+            margin-left: 1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            margin-left: auto;
+            margin-right: 1rem;
+        }
+
+        .nav-links a {
+            color: #64748b;
+            padding: 0.45rem 1rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+            background: var(--border);
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.3rem 0.9rem;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            animation: fadeUp 0.6s ease both;
+        }
+
+        .results-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+            width: 100%;
+        }
+
+        .image-section,
+        .result-card {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .image-section h3 {
+            font-family: 'DM Serif Display', serif;
+            color: #fc48a5;
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+        }
+
+        .uploaded-image {
+            max-width: 100%;
+            max-height: 400px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .prediction-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2rem;
+            color: var(--success);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .confidence {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--success), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        .confidence-meter {
+            background: rgba(16, 185, 129, 0.2);
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        .confidence-bar {
+            height: 12px;
+            border-radius: 6px;
+            transition: width 2s ease;
+            background: var(--success);
+        }
+
+        .all-predictions h4 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--muted);
+        }
+
+        .prediction-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            margin-bottom: 0.5rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            margin: 3rem auto;
+            justify-content: center;
+            max-width: 500px;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--muted);
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem 2.5rem;
+            text-align: center;
+            color: var(--muted);
+            margin-top: 4rem;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .results-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">🔬 Cancer Detection <span style="color:#3b82f6">AI</span></div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/predict">Predict</a>
+            <a href="/about">About</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="badge"
+            style="background: rgba(16,185,129,0.2); border: 1px solid rgba(16,185,129,0.4); color: var(--success);">
+            <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--success);"></span>
+            Analysis Complete
+        </div>
+        <h1
+            style="color: var(--success); font-family: 'DM Serif Display', serif; font-size: clamp(2.6rem, 6vw, 4.2rem);">
+            Results Ready</h1>
+    </section>
+
+    <div class="results-section">
+        <div class="image-section">
+            <h3>📸 Uploaded Image</h3>
+            <img src="/static/uploads/{{ filename }}" alt="Blood smear" class="uploaded-image">
+            <p style="color: var(--muted); margin-top: 1rem; font-size: 0.9rem;">
+                File: {{ filename }}
+            </p>
+        </div>
+
+
+        <div class="result-card">
+            <div class="prediction-title">Diagnosed Stage: {{ predicted_class }}</div>
+            <div class="confidence">{{ confidence }}%</div>
+
+            <div class="confidence-meter">
+                <div class="confidence-bar"></div>
+                <div style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--muted);">Confidence Level: {{ confidence
+                    }}%</div>
+            </div>
+
+
+            <div class="all-predictions">
+                <h4>All Predictions</h4>
+                {% for pred in all_predictions %}
+                <div class="prediction-item">
+                    <span style="font-weight: 500;">{{ pred.class }}</span>
+                    <span style="font-weight: 600; color: var(--accent);">{{ pred.confidence }}%</span>
+                </div>
+                {% endfor %}
+            </div>
+
+            <!-- Add after all-predictions div -->
+            <div style="text-align: center; margin: 3rem 0;">
+                <img src="{{ url_for('static', filename='accuracy_graph.png') }}" alt="Model Accuracy">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="btn-group">
+        <a href="/predict" class="btn-primary">🔄 Analyze Another</a>
+        <a href="/" class="btn-primary btn-secondary">🏠 Home</a>
+    </div>
+
+    <!-- Add this right before <footer> -->
+    <div style="text-align: center; margin: 3rem 0;">
+        <a href="/about#stages" class="btn-primary"
+            style="padding: 1rem 3rem; font-size: 1.1rem; background: linear-gradient(135deg, var(--accent), var(--accent2));">
+            📖 Know More About Classifications
+        </a>
+    </div>
+
+    <footer>
+        <!-- existing footer content -->
+    </footer>
+
+
+    <footer>
+        <span>© 2025 CancerDetect AI — For research purposes only</span><br><br>
+        <span style="font-size: 0.8rem;">⚠️ Not a substitute for professional medical advice</span>
+    </footer>
+</body>
+
+</html>

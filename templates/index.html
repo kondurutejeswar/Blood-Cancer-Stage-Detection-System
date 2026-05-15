@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Cancer Detection</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">🔬 Cancer Detection <span style="color:#3b82f6">AI</span></div>
+
+        <div class="nav-links">
+            <a href="/" class="active">Home</a>
+            <a href="/predict">Predict</a>
+            <a href="/about">About</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="badge"><span></span> AI-Powered Medical Analysis</div>
+        <h1>Early Detection of<br /><em>Leukemia</em> with Deep Learning</h1>
+        <p>Upload a blood smear microscopy image and our CNN model will classify it into one of four leukemia stages
+            with high confidence.</p>
+        <div class="hero-cta">
+            <a href="/predict" class="btn-primary">🩸 Start Diagnosis</a>
+            <a href="/about" class="btn-outline">Learn More</a>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats">
+        <div class="stat">
+            <div class="stat-num">4<span>+</span></div>
+            <div class="stat-label">Cancer Classes</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">128<span>px</span></div>
+            <div class="stat-label">Image Resolution</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">CNN<span></span></div>
+            <div class="stat-label">Deep Learning Model</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">10<span>×</span></div>
+            <div class="stat-label">Training Epochs</div>
+        </div>
+    </div>
+
+    <!-- CLASSES -->
+    <section class="section">
+        <h2 class="section-title">Classification Categories</h2>
+        <p class="section-sub">The model identifies four distinct leukemia stages from blood smear images</p>
+        <div class="cards">
+            <div class="card card-benign">
+                <div class="card-icon">✅</div>
+                <h3>Benign</h3>
+                <p>Normal blood cell morphology with no cancerous characteristics. Low risk classification.</p>
+                <span class="card-tag">Low Risk</span>
+            </div>
+            <div class="card card-early">
+                <div class="card-icon">🔵</div>
+                <h3>Early Stage</h3>
+                <p>Initial signs of abnormal cell development. Early intervention greatly improves outcomes.</p>
+                <span class="card-tag">Moderate</span>
+            </div>
+            <div class="card card-pre">
+                <div class="card-icon">⚠️</div>
+                <h3>Pre-Cancerous</h3>
+                <p>Precancerous cellular changes detected. Immediate medical evaluation strongly advised.</p>
+                <span class="card-tag">High Risk</span>
+            </div>
+            <div class="card card-pro">
+                <div class="card-icon">🔴</div>
+                <h3>Pro-Cancerous</h3>
+                <p>Advanced cancerous characteristics present. Urgent clinical follow-up required.</p>
+                <span class="card-tag">Critical</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section">
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-sub">Three simple steps to get your analysis</p>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">1</div>
+                <div>
+                    <h4>Upload Image</h4>
+                    <p>Upload a blood smear microscopy image in JPEG or PNG format.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div>
+                    <h4>AI Analysis</h4>
+                    <p>Our trained CNN model processes the image and extracts cellular features.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div>
+                    <h4>Get Results</h4>
+                    <p>Receive a detailed classification with confidence score instantly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FOOTER -->
+    <footer>
+        <span>© 2025 CancerDetect AI — For research purposes only</span>
+        <div style="display:flex;gap:1.5rem;">
+            <a href="/">Home</a>
+            <a href="/predict">Predict</a>
+            <a href="/about">About</a>
+        </div>
+        <span>⚠️ Not a substitute for professional medical advice</span>
+    </footer>
+
+
+</body>
+
+</html>

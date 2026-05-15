@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Blood Cancer Detection</title>
+    <style>
+        :root {
+            --bg: #0b0f1a;
+            --surface: #111827;
+            --card: #1a2235;
+            --accent: #3b82f6;
+            --accent2: #06b6d4;
+            --danger: #ef4444;
+            --success: #10b981;
+            --warn: #f59e0b;
+            --text: #e2e8f0;
+            --muted: #64748b;
+            --border: rgba(255, 255, 255, 0.07);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 0.8rem;
+            font-family: "Poppins", sans-serif;
+            background-color: #0b0f1a;
+        }
+
+        .navbar {
+            display: flex;
+            background-color: rgba(11, 15, 26, 0.85);
+            color: #fff;
+            width: 100%;
+            padding: 0.8rem 0;
+            align-items: center;
+            border-bottom:  1px solid var(--card);
+        }
+
+        .logo {
+            letter-spacing: 2px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: 'DM Serif Display', sans-serif;
+            font-size: 1.3rem;
+            color: #e2e8f0;
+            margin-left: 1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            /* FIXED: More spacing between links */
+            margin-left: auto;
+            margin-right: 1rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #64748b;
+            padding: 0.45rem 1rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text);
+            background: var(--border);
+        }
+
+        .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .hero {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.25);
+            color: var(--accent);
+            padding: 0.3rem 0.9rem;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            animation: fadeUp 0.6s ease both;
+        }
+
+        .badge span {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            animation: pulse 1.5s infinite;
+        }
+
+        h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.6rem, 6vw, 4.2rem);
+            line-height: 1.1;
+            max-width: 820px;
+            color: #10b981;
+            animation: fadeUp 0.6s 0.1s ease both;
+        }
+
+        .hero p {
+            margin-top: 1.2rem;
+            max-width: 560px;
+            color: var(--muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            animation: fadeUp 0.6s 0.2s ease both;
+        }
+
+        .section {
+            position: relative;
+            z-index: 1;
+            padding: 3rem 2rem 4rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.9rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            color: #d7d7d7;
+        }
+
+        .section-sub {
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.92rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 1.5rem;
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--accent);
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fc48a5;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: var(--muted);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 3rem 2rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-num {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2.5rem;
+            color: var(--text);
+        }
+
+        .stat-num span {
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin-top: 0.3rem;
+        }
+
+        footer {
+            position: relative;
+            z-index: 1;
+            border-top: 1px solid var(--border);
+            padding: 2rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--muted);
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fc48a5;
+            margin-bottom: 0.8rem;
+        }
+
+        .card p {
+            font-size: 0.88rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .card-tag {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Card Colors */
+        .card-benign .card-icon {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--success);
+        }
+
+        .card-benign .card-tag {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+        }
+
+        .card-early .card-icon {
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--accent);
+        }
+
+        .card-early .card-tag {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--accent);
+        }
+
+        .card-pre .card-icon {
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--warn);
+        }
+
+        .card-pre .card-tag {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--warn);
+        }
+
+        .card-pro .card-icon {
+            background: rgba(239, 68, 68, 0.15);
+            color: var(--danger);
+        }
+
+        .card-pro .card-tag {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--danger);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">🔬 Cancer Detection <span style="color:#3b82f6">AI</span></div>
+        <div class="nav-links">
+            <a href="/" class="">Home</a>
+            <a href="/predict">Predict</a>
+            <a href="/about" class="active">About</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="badge"><span></span> About Our Technology</div>
+        <h1>Advanced <em>AI</em> for Leukemia Detection</h1>
+        <p>Leveraging state-of-the-art Convolutional Neural Networks trained on thousands of annotated blood smear
+            images for precise leukemia classification.</p>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats">
+        <div class="stat">
+            <div class="stat-num">95<span>%+</span></div>
+            <div class="stat-label">Accuracy</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">10K<span>+</span></div>
+            <div class="stat-label">Training Images</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">4<span></span></div>
+            <div class="stat-label">Classification Stages</div>
+        </div>
+    </div>
+
+    <!-- TECHNOLOGY FEATURES -->
+    <section class="section">
+        <h2 class="section-title">Our Technology</h2>
+        <p class="section-sub">Cutting-edge deep learning for medical diagnostics</p>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🧠</div>
+                <h3>CNN Deep Learning</h3>
+                <p>Custom-trained Convolutional Neural Network optimized for blood cell morphology analysis and leukemia
+                    pattern recognition.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Real-Time Processing</h3>
+                <p>Lightning-fast inference with 128x128px optimized images - results in under 2 seconds.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Multi-Stage Detection</h3>
+                <p>Identifies 4 distinct progression stages from blood smear microscopy with confidence scores.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLASSIFICATION STAGES -->
+    <section class="section" id="stages">
+        <h2 class="section-title">Classification Stages</h2>
+        <p class="section-sub">Real-world leukemia progression stages detected by our AI model</p>
+        <div class="cards">
+            <!-- BENIGN -->
+            <div class="card card-benign">
+                <div class="card-icon">✅</div>
+                <h3>Benign (Stage 0)</h3>
+                <p><strong>Normal blood morphology</strong> - No leukemic cells detected. Lymphocytes within normal
+                    range (4,000-10,000/μL). No organ enlargement or symptoms present. <strong>95% of healthy
+                        population.</strong></p>
+                <span class="card-tag">No Risk</span>
+            </div>
+
+            <!-- EARLY -->
+            <div class="card card-early">
+                <div class="card-icon">🔵</div>
+                <h3>Early Stage (Rai Stage I)</h3>
+                <p><strong>Initial lymphocyte elevation</strong> (15,000-30,000/μL) with enlarged lymph nodes but no
+                    anemia. Patient may have mild fatigue. <strong>5-year survival: 90%+ with monitoring.</strong></p>
+                <span class="card-tag">Low Risk</span>
+            </div>
+
+            <!-- PRE-CANCEROUS -->
+            <div class="card card-pre">
+                <div class="card-icon">⚠️</div>
+                <h3>Pre-Cancerous (Rai Stage II-III)</h3>
+                <p><strong>Moderate lymphocyte proliferation</strong> (30,000-100,000/μL) with anemia (hemoglobin <10g
+                        /dL). Spleen/liver enlargement common. <strong>Progression risk: 20-30% per year.</strong></p>
+                <span class="card-tag">High Risk</span>
+            </div>
+
+            <!-- PRO-CANCEROUS -->
+            <div class="card card-pro">
+                <div class="card-icon">🔴</div>
+                <h3>Pro-Cancerous (Rai Stage IV)</h3>
+                <p><strong>Advanced leukemia</strong> (>100,000/μL lymphocytes) with severe anemia & thrombocytopenia (
+                    <50,000 platelets). Multiple organ involvement. <strong>Urgent chemotherapy required.</strong></p>
+                <span class="card-tag">Critical</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACCURACY GRAPH -->
+    <section class="section" style="text-align: center;">
+        <h2 class="section-title">Model Performance</h2>
+        <img src="{{ url_for('static', filename='accuracy_graph.png') }}" alt="Model Accuracy Graph"
+            style="max-width: 100%; max-height: 400px; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
+    </section>
+
+    <footer>
+        <span>© 2025 CancerDetect AI — For research purposes only</span>
+        <div style="display:flex;gap:1.5rem;">
+            <a href="/">Home</a>
+            <a href="/predict">Predict</a>
+            <a href="/about">About</a>
+        </div>
+        <span>⚠️ Not a substitute for professional medical advice</span>
+    </footer>
+</body>
+
+</html>
